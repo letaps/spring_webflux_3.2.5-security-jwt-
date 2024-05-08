@@ -3,7 +3,7 @@ package com.example.Reactive.Spring.Boot325.JWT.controllers;
 
 import com.example.Reactive.Spring.Boot325.JWT.dto.AuthenticationRequest;
 import com.example.Reactive.Spring.Boot325.JWT.dto.AuthenticationResponse;
-import com.example.Reactive.Spring.Boot325.JWT.service.AuthenticationServiceImplementation;
+import com.example.Reactive.Spring.Boot325.JWT.service.implementations.AuthenticationServiceImplementation;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

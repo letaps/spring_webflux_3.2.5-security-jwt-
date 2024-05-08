@@ -1,4 +1,4 @@
-package com.example.Reactive.Spring.Boot325.JWT.service;
+package com.example.Reactive.Spring.Boot325.JWT.service.interfaces;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import reactor.core.publisher.Mono;
