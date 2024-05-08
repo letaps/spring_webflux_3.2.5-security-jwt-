@@ -22,7 +22,7 @@ public class TestReactiveController {
 
     private final PasswordEncoder passwordEncoder;
     private final ReactiveUserDetailsService userDetailsService;
-    private final TokenService.TokenProvider tokenProvider;
+    private final TokenService tokenProvider;
 
     @GetMapping(path = "/unsecured")
     public Mono<String> helloWorldUnSecured(){

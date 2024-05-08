@@ -4,6 +4,7 @@ import com.example.Reactive.Spring.Boot325.JWT.configs.JwtAuthenticationExceptio
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import lombok.extern.slf4j.Slf4j;
@@ -82,9 +83,8 @@ public class JwtService implements TokenService {
             throw new JwtAuthenticationException(e.getMessage());
         }
     }
-
     private SecretKey getSigningKey() {
-        byte[] bytes = Decoders.BASE64.decode(secretKey);
-        return Keys.hmacShaKeyFor(bytes);
+        byte[] keyBytes = Decoders.BASE64.decode(secretKey);
+        return Keys.hmacShaKeyFor(keyBytes);
     }
 }

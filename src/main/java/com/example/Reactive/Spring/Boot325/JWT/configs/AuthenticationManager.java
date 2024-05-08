@@ -4,6 +4,7 @@ import com.example.Reactive.Spring.Boot325.JWT.service.JwtService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.ReactiveUserDetailsService;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
@@ -12,12 +13,26 @@ import reactor.core.publisher.Mono;
 public class AuthenticationManager implements ReactiveAuthenticationManager {
     private final JwtService jwtService;
 
-    @Override
+    /*@Override
     public Mono<Authentication> authenticate(Authentication authentication) {
         return Mono.just(authentication)
                 .cast(JwtToken.class)
                 .filter(jwtToken -> jwtService.isTokenValid(jwtToken.getToken()))
                 .map(jwtToken -> jwtToken.withAuthenticated(true))
+                .switchIfEmpty(Mono.error(new JwtAuthenticationException("Invalid token.")));
+    }*/
+    private final ReactiveUserDetailsService userDetailsService;
+
+    @Override
+    public Mono<Authentication> authenticate(Authentication authentication) {
+        String authToken = authentication.getCredentials().toString();
+
+        return Mono.just(authToken)
+                .filter(jwtService::isTokenValid)
+                .flatMap(token -> userDetailsService.findByUsername(jwtService.extractUsername(token))
+                        .map(userDetails -> new JwtToken(token, userDetails))
+                        .cast(Authentication.class))
+                .map(auth -> ((JwtToken) auth).withAuthenticated(true))
                 .switchIfEmpty(Mono.error(new JwtAuthenticationException("Invalid token.")));
     }
 }

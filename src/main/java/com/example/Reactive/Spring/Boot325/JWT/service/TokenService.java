@@ -7,8 +7,4 @@ import java.util.Date;
 
 public interface TokenService {
     String generateToken(UserDetails userDetails);
-
-    public interface TokenProvider {
-        String generateToken(UserDetails userDetails);
-    }
 }
