@@ -1,7 +1,9 @@
-package com.example.Reactive.Spring.Boot325.JWT.service;
+package com.example.Reactive.Spring.Boot325.JWT.service.implementations;
 
 import com.example.Reactive.Spring.Boot325.JWT.dto.AuthenticationRequest;
 import com.example.Reactive.Spring.Boot325.JWT.dto.AuthenticationResponse;
+import com.example.Reactive.Spring.Boot325.JWT.service.interfaces.AuthenticationService;
+import com.example.Reactive.Spring.Boot325.JWT.service.interfaces.TokenService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.ReactiveUserDetailsService;
@@ -12,7 +14,7 @@ import reactor.core.publisher.Mono;
 
 @Service
 @AllArgsConstructor
-public class AuthenticationServiceImplementation implements AuthenticationService  {
+public class AuthenticationServiceImplementation implements AuthenticationService {
 
     private final PasswordEncoder passwordEncoder;
     private final ReactiveUserDetailsService userDetailsService;

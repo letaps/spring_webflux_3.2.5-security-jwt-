@@ -1,10 +1,10 @@
-package com.example.Reactive.Spring.Boot325.JWT.service;
+package com.example.Reactive.Spring.Boot325.JWT.service.implementations;
 
-import com.example.Reactive.Spring.Boot325.JWT.configs.JwtAuthenticationException;
+import com.example.Reactive.Spring.Boot325.JWT.configs.jwt.JwtAuthenticationException;
+import com.example.Reactive.Spring.Boot325.JWT.service.interfaces.TokenService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import lombok.extern.slf4j.Slf4j;

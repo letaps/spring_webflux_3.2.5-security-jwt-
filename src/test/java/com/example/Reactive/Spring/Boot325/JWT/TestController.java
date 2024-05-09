@@ -2,7 +2,7 @@ package com.example.Reactive.Spring.Boot325.JWT;
 
 
 import com.example.Reactive.Spring.Boot325.JWT.dto.AuthenticationRequest;
-import com.example.Reactive.Spring.Boot325.JWT.dto.LoginResponse;
+import com.example.Reactive.Spring.Boot325.JWT.dto.AuthenticationResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +27,12 @@ public class TestController {
         AuthenticationRequest loginRequest = new AuthenticationRequest("adamk", "password");
 
         // when
-        LoginResponse response = webTestClient.post()
+        AuthenticationResponse response = webTestClient.post()
                 .uri("/login")
                 .body(BodyInserters.fromValue(loginRequest))
                 .exchange()
                 .expectStatus().isOk()
-                .expectBody(LoginResponse.class)
+                .expectBody(AuthenticationResponse.class)
                 .returnResult()
                 .getResponseBody();
 

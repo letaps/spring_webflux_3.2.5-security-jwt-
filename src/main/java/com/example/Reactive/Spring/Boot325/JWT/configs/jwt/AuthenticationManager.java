@@ -1,6 +1,6 @@
-package com.example.Reactive.Spring.Boot325.JWT.configs;
+package com.example.Reactive.Spring.Boot325.JWT.configs.jwt;
 
-import com.example.Reactive.Spring.Boot325.JWT.service.JwtService;
+import com.example.Reactive.Spring.Boot325.JWT.service.implementations.JwtService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.core.Authentication;
@@ -12,15 +12,6 @@ import reactor.core.publisher.Mono;
 @AllArgsConstructor
 public class AuthenticationManager implements ReactiveAuthenticationManager {
     private final JwtService jwtService;
-
-    /*@Override
-    public Mono<Authentication> authenticate(Authentication authentication) {
-        return Mono.just(authentication)
-                .cast(JwtToken.class)
-                .filter(jwtToken -> jwtService.isTokenValid(jwtToken.getToken()))
-                .map(jwtToken -> jwtToken.withAuthenticated(true))
-                .switchIfEmpty(Mono.error(new JwtAuthenticationException("Invalid token.")));
-    }*/
     private final ReactiveUserDetailsService userDetailsService;
 
     @Override
