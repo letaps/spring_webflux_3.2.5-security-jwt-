@@ -10,6 +10,7 @@ import java.util.UUID;
 
 
 @Data
+//@Builder
 @Table("Employee")
 public class Employee {
     @Id
