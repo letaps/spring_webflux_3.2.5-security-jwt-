@@ -8,7 +8,7 @@ import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.UUID;
 
-@Builder
+
 @Data
 @Table("Employee")
 public class Employee {

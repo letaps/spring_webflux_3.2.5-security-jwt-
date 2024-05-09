@@ -17,7 +17,8 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 public class SecurityConfigs {
     public static final String[] PERMITTED_URL = new String[]{
             "/test/unsecured",
-            "/test/login"
+            "/test/login",
+            "/test/createUser"
 
     };
     private final SecurityContextRepository securityContextRepository;
@@ -30,6 +31,7 @@ public class SecurityConfigs {
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .formLogin(ServerHttpSecurity.FormLoginSpec::disable)
                 .httpBasic(ServerHttpSecurity.HttpBasicSpec::disable)
+                .headers(headers -> headers.cache(ServerHttpSecurity.HeaderSpec.CacheSpec::disable))
                 .authorizeExchange(exchanges -> exchanges
                         .pathMatchers(PERMITTED_URL)
                         .permitAll()
