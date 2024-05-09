@@ -34,9 +34,9 @@ public class UserDetailsConfig {
     ReactiveUserDetailsService userDetailsService(EmployeeRepository userRepository, PasswordEncoder passwordEncoder) {
         return (username) -> userRepository.findByUsername(username)
                 .map(user -> User.withUsername(user.getUsername())
-                        .password(user.getPassword())
+                        .password(passwordEncoder.encode(user.getPassword()))
                         .roles(user.getRole())
-                        .disabled(user.getIsActive())
+                        .disabled(!user.getIsActive())
                         .build());
     }
 }
