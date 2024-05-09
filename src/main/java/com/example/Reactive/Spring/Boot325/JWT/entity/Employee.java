@@ -1,22 +1,16 @@
 package com.example.Reactive.Spring.Boot325.JWT.entity;
 
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.data.annotation.Id;
 
-@Entity
-@Setter
-@Getter
-@AllArgsConstructor
-@NoArgsConstructor
+import java.util.UUID;
+
+@Builder
+@Data
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
+    private UUID id;
     private String username ;
     private String password;
     private String role;

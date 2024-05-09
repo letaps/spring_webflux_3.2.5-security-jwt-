@@ -1,6 +1,6 @@
 package com.example.Reactive.Spring.Boot325.JWT.service.implementations;
 
-import com.example.Reactive.Spring.Boot325.JWT.configs.JwtAuthenticationException;
+import com.example.Reactive.Spring.Boot325.JWT.configs.jwt.JwtAuthenticationException;
 import com.example.Reactive.Spring.Boot325.JWT.service.interfaces.TokenService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;

@@ -1,4 +1,4 @@
-package com.example.Reactive.Spring.Boot325.JWT.configs;
+package com.example.Reactive.Spring.Boot325.JWT.configs.jwt;
 
 import com.example.Reactive.Spring.Boot325.JWT.service.implementations.JwtService;
 import lombok.AllArgsConstructor;

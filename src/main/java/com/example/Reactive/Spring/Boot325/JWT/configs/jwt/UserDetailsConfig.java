@@ -1,4 +1,4 @@
-package com.example.Reactive.Spring.Boot325.JWT.configs;
+package com.example.Reactive.Spring.Boot325.JWT.configs.jwt;
 
 
 
@@ -32,7 +32,7 @@ public class UserDetailsConfig {
     }*/
     @Bean
     ReactiveUserDetailsService userDetailsService(EmployeeRepository userRepository, PasswordEncoder passwordEncoder) {
-        return (username) -> userRepository.findFirstByUsernameOrderByIdDesc(username)
+        return (username) -> userRepository.findByUsername(username)
                 .map(user -> User.withUsername(user.getUsername())
                         .password(user.getPassword())
                         .roles(user.getRole())
