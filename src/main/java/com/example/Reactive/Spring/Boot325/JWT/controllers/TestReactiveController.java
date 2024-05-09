@@ -38,10 +38,8 @@ public class TestReactiveController {
         return authenticationServiceImplementation.authenticateRequest(authenticationRequest);
     }
     @PostMapping(path = "/createUser")
-    public Mono<ResponseEntity<?>> createUser(@RequestBody final EmployeeRequest employeeRequest){
-        return employeeServiceImplementation.createUser(employeeRequest)
-                .map(employee -> ResponseEntity.ok(employee))
-                .onErrorResume(e -> Mono.just(ResponseEntity.badRequest());
+    public Mono<?> createUser(@RequestBody final EmployeeRequest employeeRequest){
+        return employeeServiceImplementation.createUser(employeeRequest);
     }
 
 
