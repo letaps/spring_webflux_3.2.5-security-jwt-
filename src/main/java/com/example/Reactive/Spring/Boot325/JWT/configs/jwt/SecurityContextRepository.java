@@ -32,6 +32,6 @@ public class SecurityContextRepository implements ServerSecurityContextRepositor
                 .switchIfEmpty(Mono.empty())
                 .map(authHeader -> authHeader.replace(TOKEN_PREFIX, "").trim())
                 .flatMap(authToken -> authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authToken, authToken)))
-                .map(authentication -> new SecurityContextImpl(authentication));
+                .map(SecurityContextImpl::new);
     }
 }

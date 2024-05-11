@@ -1,7 +1,7 @@
 package com.example.Reactive.Spring.Boot325.JWT.configs.jwt;
 
 
-import com.example.Reactive.Spring.Boot325.JWT.configs.jwt.SecurityContextRepository;
+
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +15,7 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 @EnableReactiveMethodSecurity
 @AllArgsConstructor
 public class SecurityConfigs {
-    public static final String[] PERMITTED_URL = new String[]{
+    private static final String[] PERMITTED_URL = new String[]{
             "/test/unsecured",
             "/test/login",
             "/test/createUser"
