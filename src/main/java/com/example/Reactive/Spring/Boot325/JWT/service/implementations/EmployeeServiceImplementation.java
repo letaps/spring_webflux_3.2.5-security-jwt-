@@ -6,11 +6,9 @@ import com.example.Reactive.Spring.Boot325.JWT.entity.Employee;
 import com.example.Reactive.Spring.Boot325.JWT.repositories.EmployeeRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
-import java.util.UUID;
 
 @Service
 @AllArgsConstructor
